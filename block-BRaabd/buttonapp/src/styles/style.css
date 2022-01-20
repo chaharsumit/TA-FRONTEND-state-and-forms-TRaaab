@@ -25,3 +25,8 @@ img{
   width: 100%;
   height: 700px;
 }
+.active{
+  background: orangered;
+  color: white;
+  border: none;
+}
