@@ -11,7 +11,7 @@ class App extends React.Component{
     };
   }
   Increment = () => {
-    this.state.counter < this.state.max ? 
+    (this.state.counter + this.state.stepVal) < this.state.max ? 
     this.setState({
       counter: this.state.counter + this.state.stepVal,
     }) : this.setState({
