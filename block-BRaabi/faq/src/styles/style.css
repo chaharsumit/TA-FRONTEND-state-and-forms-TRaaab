@@ -1,0 +1,34 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  text-align: center;
+}
+.container{
+  padding: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+.question-container{
+  margin-top: 2rem;
+}
+.question{
+  padding: 1rem;
+  background: burlywood;
+  color: black;
+}
+.active{
+  background: lightblue;
+}
+.answer{
+  padding: 1rem;
+  background: bisque;
+  border: 1px solid #f2f2f2;
+  display: none;
+}
+.answer-alt{
+  padding: 1rem;
+  background: bisque;
+  border: 1px solid #f2f2f2;
+  display: block;
+}
