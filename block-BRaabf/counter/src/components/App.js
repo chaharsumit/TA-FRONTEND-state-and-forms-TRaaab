@@ -5,17 +5,18 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      counter: 0
+      counter: 0,
+      stepVal: 1,
     };
   }
   Increment = () => {
     this.setState({
-      counter: this.state.counter + 1,
+      counter: this.state.counter + this.state.stepVal,
     })
   }
   Decrement = () => {
     this.setState({
-      counter: this.state.counter - 1,
+      counter: this.state.counter - this.state.stepVal,
     })
   }
   Reset = () => {
@@ -24,13 +25,27 @@ class App extends React.Component{
     })
   }
   render(){
+    let steps = [5, 10, 15];
     return (
       <>
-        <h1>counter App</h1>
-        <h3>{this.state.counter}</h3>
-        <button onClick={this.Increment}>Increment</button>
-        <button onClick={this.Decrement}>Decrement</button>
-        <button onClick={this.Reset}>Reset</button>
+        <h1>{this.state.counter}</h1>
+        <h3>Steps :</h3>
+        <div className="steps-container">
+          {
+            steps.map(step => (
+              <span className={this.state.stepVal === step ? "step active" : "step"} onClick={() => {
+                this.setState({
+                  stepVal: step,
+                })
+              }}>{step}</span>
+            ))
+          }
+        </div>
+        <div className="buttons-container">
+          <button onClick={this.Increment}>Increment</button>
+          <button onClick={this.Decrement}>Decrement</button>
+          <button onClick={this.Reset}>Reset</button>
+        </div>
       </>
     )
   }
