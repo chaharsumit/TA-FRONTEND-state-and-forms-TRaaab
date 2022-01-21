@@ -1,6 +1,7 @@
 import React from 'react';
 import data from '../data';
 
+/*
 class App extends React.Component{
   constructor(props){
     super(props);
@@ -15,10 +16,15 @@ class App extends React.Component{
         status: !this.state.status,
         ques: question,
       })
+    }else if(this.state.status && this.state.ques !== question){
+      this.setState({
+        status: this.state.status,
+        ques: question,
+      })
     }else{
       this.setState({
         status: !this.state.status,
-        ques: "",
+        ques: ""
       })
     }
   }
@@ -41,5 +47,38 @@ class App extends React.Component{
     )
   }
 };
+*/
+
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      activeIndex: null
+    }
+  }
+
+  render(){
+    return (
+      <div className='container'>
+        {
+          data.map((question, index) => (
+            <div key={index} className='question-container'>
+              <div key={question.Q} className='question' onClick={() => {
+                this.setState({
+                  activeIndex: this.state.activeIndex === index ? null : index,
+                })
+              }}>
+                {question.Q}
+              </div>
+              {
+                this.state.activeIndex === index && <div className='answer-alt' key={question.A}>{question.A}</div>
+              }
+            </div>
+          ))
+        }
+      </div>
+    )
+  }
+}
 
 export default App;
