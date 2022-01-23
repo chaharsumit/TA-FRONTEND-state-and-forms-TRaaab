@@ -1,0 +1,59 @@
+.error{
+  outline: red;
+  border-color: red;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form_one{
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  width: 600px;
+  margin: 50px auto;
+  justify-content: center;
+  border: 1px solid #cecccc;
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem black;
+}
+.form_one input,textarea{
+  padding: 0.5rem;
+  border: 1px solid #cecccc;
+  border-radius: 0.2rem;
+}
+
+
+#root{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.Login-form{
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  width: 600px;
+  margin: 50px auto;
+  justify-content: center;
+  border: 1px solid #cecccc;
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem black;
+}
+.Login-form input,textarea{
+  padding: 1rem;
+  border: 1px solid #cecccc;
+  border-radius: 0.2rem;
+}
+.Login-form input[type="submit"]{
+  background-color: rgb(122, 122, 189);
+  color: white;
+  border-radius: 0.5rem;
+  padding: 1em;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+}
