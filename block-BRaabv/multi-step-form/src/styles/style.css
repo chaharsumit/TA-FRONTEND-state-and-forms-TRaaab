@@ -80,6 +80,10 @@ li{
 	column-gap: 0.5rem;
 	align-items: center;
 }
+.form-group{
+	border-bottom: 1px solid #f2f2f2;
+	padding-bottom: 2rem;
+}
 .form-status{
 	padding: 0.5rem 1rem;
 	background-color: #cecccc;
@@ -128,4 +132,86 @@ img{
 }
 input[type="checkbox"]{
 	display: none;
+}
+i{
+	padding: 0;
+	font-size: 0.5rem;
+}
+.form-control{
+	border: 1px solid #cecccc;
+	border-radius: 0.5rem;
+	padding: 0 0.8rem;
+	height: 3.5em;
+}
+.flex-label{
+	flex-direction: column;
+	row-gap: 0.5rem;
+	font-size: 0.8rem;
+	font-weight: 700;
+	color: rgb(1, 1, 65);
+}
+.btn{
+	padding: 1em 2em;
+	font-size: 0.7rem;
+	border: none;
+	border-radius: 0.25rem;
+	margin: 1.5rem 0.5rem 0 0.5rem;
+	float: right;
+}
+.btn-primary{
+	color: white;
+	background-color: tomato;
+}
+.btn-success{
+	color: white;
+	background-color: teal;
+}
+.fieldset-row{
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 1.5rem;
+}
+.fieldset-row label{
+	flex: 0 1 48%;
+}
+#message{
+	height: 180px;
+	padding: 1rem;
+}
+.choice{
+	font-size: 1rem;
+	color: rgb(1, 1, 65);
+	font-weight: 700;
+	margin-top: 2rem;
+	column-gap: 1rem;
+	align-items: center;
+}
+.choice_Two{
+	margin-top: 2rem;
+	flex-direction: column;
+	row-gap: 0.5rem;
+}
+.choice-checkbox{
+	justify-content: space-between;
+}
+.avatar-label{
+	height: 150px;
+	flex: 0 1 45%;
+	padding: 1rem;
+	background-color: #f2f2f2;
+	border-radius: 0.5rem;
+	align-items: center;
+	justify-content: center;
+}
+.avatar{
+	height: 80%;
+	width: 100%;
+	object-fit: contain;
+	filter: grayscale(100);
+}
+.avatar-label:hover{
+	box-shadow: 0 0 0.2rem tomato;
+}
+.avatar-label:hover .avatar{
+	filter: grayscale(0);
 }

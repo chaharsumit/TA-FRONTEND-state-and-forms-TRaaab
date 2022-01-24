@@ -21,10 +21,14 @@ function Header(props){
     <>
       <ul className="menu flex">
         <li className="flex">
-          <span className={props.currentStep >= 1 ? "form-status-active" : "form-status"}>1</span><span>Sign Up</span>
+          <span className={props.currentStep >= 1 ? "form-status-active" : "form-status"}>
+            {props.currentStep > 1 ? <i className="fas fa-check"></i> : 1}  
+          </span><span>Sign Up</span>
         </li>
         <li className="flex">
-          <span className={props.currentStep >= 2 ? "form-status-active" :"form-status"}>2</span><span>Message</span>
+          <span className={props.currentStep >= 2 ? "form-status-active" :"form-status"}>
+            {props.currentStep > 2 ? <i className="fas fa-check"></i> : 2}   
+          </span><span>Message</span>
         </li>
         <li className="flex">
           <span className={props.currentStep === 3 ? "form-status-active" : "form-status"}>3</span><span>Checkbox</span>
