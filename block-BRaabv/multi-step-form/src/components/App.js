@@ -42,11 +42,11 @@ class App extends React.Component{
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { email, password, username } = this.state;
+    const { email, firstName, lastName, date, address, choice, choiceTwo, male, female } = this.state;
     alert(`Your registration detail: \n
     Email: ${email} \n
-    Username: ${username} \n
-    Password: ${password}`)
+    Name: ${firstName + lastName} \n
+    DOB: ${date}`)
   }
 
   _next = (event) => {
@@ -72,7 +72,7 @@ class App extends React.Component{
     if(currentStep !== 1){
       return (
         <button 
-          className="btn btn-secondary"
+          className="btn btn-primary"
           type="button"
           onClick={this._prev}>
             Back

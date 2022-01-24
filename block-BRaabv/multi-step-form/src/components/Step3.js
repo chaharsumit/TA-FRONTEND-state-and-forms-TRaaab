@@ -6,16 +6,16 @@ function Step3(props) {
     <>
     <div className="form-group">
       <fieldset className="choice-checkbox flex">
-        <label>
+        <label className="avatar-label flex">
           <input onChange={props.handleChange} type='checkbox' name="male"/>
           <img src="actor.png" className="avatar" />
         </label>
-        <label>
+        <label className="avatar-label flex">
           <input onChange={props.handleChange}  type='checkbox' name="female"/>
           <img src="actress.png" className="avatar" />
         </label>
       </fieldset>
-      <fieldset className="choice-radios">
+      <fieldset id="choice_Two" className="choice_Two flex">
         <label>
           <input onChange={props.handleChange} type="radio" id="choiceOne" value="I want to add this option" name="choiceTwo" />
           I want to add this option
@@ -26,7 +26,7 @@ function Step3(props) {
         </label>
       </fieldset>     
     </div>
-    <button className="btn btn-success btn-block">Submit</button>
+    <button className="btn btn-success">Submit</button>
     </>
   );
 }
