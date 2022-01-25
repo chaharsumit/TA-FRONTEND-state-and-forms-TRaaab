@@ -15,20 +15,20 @@ function Cart(props){
       
       {
         props.cart.map(item => (
-          <ul className="cart-items flex">
+          <ul key={item.id} className="cart-items flex">
             <img onClick={() => props.deleteFromCart(item)} src="products/sprite_delete-icon.png" className="remove" />
             <li className="cart-item-card flex">
               <img src={`products/${item.sku}_2.jpg`} />
               <div>
                 <h4>{item.style}</h4>
                 <p><span>X</span> | <span>{item.style}</span></p>
-                <p>Quantity: 1</p>
+                <p>Quantity: {item.quantity}</p>
               </div>
               <div>
-                <p className="cart-price">${item.price}</p>
+                <p className="cart-price">${item.price * item.quantity}</p>
                 <div>
-                  <button className="cart-btn">+</button>
-                  <button className="cart-btn">-</button>
+                  <button onClick={() => props.incQuantity(item)} className="cart-btn">+</button>
+                  <button onClick={() => props.decQuantity(item)} className="cart-btn">-</button>
                 </div>
               </div>
             </li>
@@ -41,7 +41,7 @@ function Cart(props){
         <p className="cart-price">$
           {
             props.cart.reduce((acc, curr) => {
-              acc += curr.price;
+              acc += curr.price * curr.quantity;
               return acc;
             }, 0)
           }

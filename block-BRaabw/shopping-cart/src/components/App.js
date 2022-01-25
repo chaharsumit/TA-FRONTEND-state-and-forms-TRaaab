@@ -18,10 +18,50 @@ class App extends React.Component{
     }
   }
 
+  incQuantity = (item) => {
+    this.setState((prevState) => {
+      let newCart = prevState.cart.map(product => {
+        if(product.id === item.id){
+          return {
+            ...product,
+            quantity: product.quantity + 1
+          }
+        }else{
+          return product;
+        }
+      });
+      return {
+        cart: newCart,
+      }
+    })
+  }
+
+  decQuantity = (item) => {
+    if(item.quantity === 1){
+      return null;
+    }else{
+      this.setState((prevState) => {
+        let newCart = prevState.cart.map(product => {
+          if(product.id === item.id){
+            return {
+              ...product,
+              quantity: product.quantity - 1
+            }
+          }else{
+            return product;
+          }
+        });
+        return {
+          cart: newCart,
+        }
+      })
+    }
+  }
+
   addToCart = (item) => {
     this.setState((prevState) => {
       return {
-        cart: prevState.cart.concat(item)
+        cart: prevState.cart.concat({...item, quantity: 1})
       }
     })
   }
@@ -133,7 +173,7 @@ class App extends React.Component{
     return (
       <>
         <Bag cart={this.state.cart} status={this.state.cartStatus} toggleCart={this.toggleCart} />
-        <Cart deleteFromCart={this.deleteFromCart} status={this.state.cartStatus} toggleCart={this.toggleCart} cart={this.state.cart} />
+        <Cart incQuantity={this.incQuantity} decQuantity={this.decQuantity} deleteFromCart={this.deleteFromCart} status={this.state.cartStatus} toggleCart={this.toggleCart} cart={this.state.cart} />
         <div className='container flex'>
           <Aside selectedSize={this.state.size} handleSize={this.handleSize} sizes={allSizes} />
           <div className='main'>
