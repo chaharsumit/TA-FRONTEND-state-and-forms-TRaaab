@@ -59,11 +59,16 @@ class App extends React.Component{
   }
 
   addToCart = (item) => {
-    this.setState((prevState) => {
-      return {
-        cart: prevState.cart.concat({...item, quantity: 1})
-      }
-    })
+    let foundArr = this.state.cart.find(products => products.id === item.id);
+    if(foundArr){
+      this.incQuantity(item);
+    }else{
+      this.setState((prevState) => {
+        return {
+          cart: prevState.cart.concat({...item, quantity: 1})
+        }
+      })
+    }
   }
 
   deleteFromCart = (item) => {
