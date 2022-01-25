@@ -1,5 +1,4 @@
 function Cart(props){
-  console.log(props.cart);
   return (
     
     <div className={props.status ? "cart flex" : "none"}>
@@ -47,7 +46,12 @@ function Cart(props){
           }
         </p>
       </div>
-      <button className="checkout-btn">CHECKOUT</button>
+      <button onClick={() => alert(
+        `subTotal is = ${props.cart.reduce((acc, curr) => {
+          acc += curr.price * curr.quantity;
+          return acc;
+        }, 0)}`
+      )} className="checkout-btn">CHECKOUT</button>
     </div>
   
   )
