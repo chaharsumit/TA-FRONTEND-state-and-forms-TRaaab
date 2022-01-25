@@ -10,7 +10,7 @@ function Products(props){
             <h4>{item.title}</h4>
             <hr />
             <p className="price">${item.price}</p>
-            <button className="btn">Add To Cart</button>
+            <button onClick={() => props.addToCart(item)} className="btn">Add To Cart</button>
           </li>
         ))
       }

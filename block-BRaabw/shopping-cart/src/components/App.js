@@ -3,6 +3,8 @@ import data from '../data.json';
 import Aside from './Aside';
 import Header from './Header';
 import Products from './Products';
+import Bag from './Bag';
+import Cart from './Cart';
 
 let allProducts = data.products;
 class App extends React.Component{
@@ -11,7 +13,26 @@ class App extends React.Component{
     this.state = {
       size: [],
       select: "",
+      cartStatus: false,
+      cart: []
     }
+  }
+
+  addToCart = (item) => {
+    this.setState((prevState) => {
+      return {
+        cart: prevState.cart.concat(item)
+      }
+    })
+  }
+
+  deleteFromCart = (item) => {
+    let cartArr = this.state.cart;
+    let pos = cartArr.indexOf(item);
+    cartArr.splice(pos, 1);
+    this.setState({
+      cart: cartArr
+    });
   }
 
   Sizes = () => {
@@ -85,7 +106,6 @@ class App extends React.Component{
     }
   }
 
-
   sendProducts = () => {
     let result = [];
     if(this.state.size.length === 0 && !this.state.select){
@@ -97,18 +117,31 @@ class App extends React.Component{
     return result;
   }
 
+  toggleCart = () => {
+    this.setState((prevState) => {
+      return {
+        cartStatus: !prevState.cartStatus
+      }
+    });
+  }
+
+
   render(){
     let allSizes = this.Sizes();
     let products = this.sendProducts();
     /*call sendPro here*/
     return (
-      <div className='container flex'>
-        <Aside handleSize={this.handleSize} sizes={allSizes} />
-        <div className='main'>
-          <Header handleSelect={this.handleSelect} total={products} />
-          <Products productList={products} />
+      <>
+        <Bag cart={this.state.cart} status={this.state.cartStatus} toggleCart={this.toggleCart} />
+        <Cart deleteFromCart={this.deleteFromCart} status={this.state.cartStatus} toggleCart={this.toggleCart} cart={this.state.cart} />
+        <div className='container flex'>
+          <Aside selectedSize={this.state.size} handleSize={this.handleSize} sizes={allSizes} />
+          <div className='main'>
+            <Header handleSelect={this.handleSelect} total={products} />
+            <Products addToCart={this.addToCart} productList={products} />
+          </div>
         </div>
-      </div>
+      </>
     )
   }
 }
